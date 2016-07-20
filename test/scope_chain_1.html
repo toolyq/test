@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <title>1.Js中没有 块级作用域</title>
+</head>
+
+<body>
+    <script>
+    ////  http://www.cnblogs.com/wupeiqi/p/5649402.html
+    //1.Js中没有 块级作用域
+    ////////////////////////////////////////////////////////////////////////////
+    function F(){
+        if(true){
+            var a = 1234567;
+        }
+        console.log(a);//由于js 中没有 块级作用域，所以打印出来的是 1234567
+    }
+    F();
+    ////////////////////////////////////////////////////////////////////////////
+    function A() {
+        var a = [];
+        for (var i = 0; i < 10; i++) {
+            a.push(function() {
+                //console.log(m);
+                console.log(i);
+            });
+        }
+
+        for (var j = 0; j < a.length; j++) { //由于js 中没有 块级作用域，所以打印出来的是 10,10,10,10,10...
+            a[j]();
+        }
+    }
+    A();
+    ////////////////////////////////////////////////////////////////////////////
+    function B() {
+        "use strict"
+        var a = [];
+        for (var i = 0; i < 10; i++) {
+            let m = i; //使用let（必须在 ES6, 严格模式下）,可以让js支持块级作用域
+            a.push(function() {
+                console.log(m);
+            });
+        }
+
+        for (var j = 0; j < a.length; j++) {
+            a[j]();
+        }
+    }
+    B(); //0,1,2,3,4,5,6,7,8,9
+    ////////////////////////////////////////////////////////////////////////////
+    function C() {
+        var a = [];
+        for (var i = 0; i < 10; i++) {
+            // var f = function(m) {
+            //     return function() {
+            //         console.log(m);
+            //     }
+            // }
+            // a.push(f(i));
+            //使用闭包实现块级作用域，跟以上注释的代码是等效的
+            var f = (function(m) {
+                return function() {
+                    console.log(m);
+                }
+            })(i);
+            a.push(f);
+        }
+
+        for (var j = 0; j < a.length; j++) {
+            a[j]();
+        }
+    }
+    C(); //0,1,2,3,4,5,6,7,8,9
+    </script>
+</body>
+
+</html>

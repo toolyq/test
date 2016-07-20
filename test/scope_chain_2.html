@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>2.JS的作用域链在执行前已经创建</title>
+</head>
+
+<body>
+    <script>
+    //2.JS的作用域链在执行前已经创建
+    (function() {
+        var a = "a";
+
+        function A() {
+            var a = "b";
+
+            function B() {
+                console.log(a);
+            }
+            return B;
+        }
+        A()(); //b
+    })();
+
+    /////////////////////////////////
+    (function() {
+        var a = "a";
+
+        function A() {
+            var a = "b";
+
+            function B() {
+                console.log(a);
+            }
+            a="c";
+            return B;
+        }
+        A()(); //c
+    })();
+
+    /////////////////////////////////JS的作用域链在执行前已经创建
+    (function() {
+        var a = "a";
+
+        function A() {
+            console.log(a);
+        }
+
+        function B(){
+            var a="b";
+            return A;
+        }
+
+        B()(); //a
+    })();
+
+    </script>
+</body>
+
+</html>

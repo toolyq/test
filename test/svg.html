@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <svg width="400" height="400">
+        <circle cx="200" cy="200" r="5" style="fill:#F00">
+            <animate attributeName="r" attributeType="XML" values="5;150;5" repeatCount="indefinite" begin="0s" dur="2s" />
+            <animate attributeName="fill-opacity" attributeType="CSS" values="1;0;1" repeatCount="indefinite" begin="0s" dur="2s" />
+        </circle>
+        <path d="M100 100, A120 120, -45 0 1, 300 300 A120 120, -45 0 1, 100 100" stroke="#ccc" stroke-width="2" fill="none" />
+        <polygon points="-12 -69,-58 85,64 -14,-81 -14,41 85" style="fill: #ff6600;">
+            <animateMotion dur="6s" repeatCount="indefinite" path="M100 100, A120 120, -45 0 1, 300 300 A120 120, -45 0 1, 100 100" rotate="auto" />
+        </polygon>
+    </svg>
+    <svg width="800" height="400">
+        <circle cx="100" cy="100" r="0" style="fill:#d8210d">
+            <animate id="a1" attributeName="r" attributeType="XML" from="0" to="30" begin="0s" dur=".2s" fill="freeze" restart = "always"/>
+        </circle>
+        <circle cx="150" cy="100" r="0" style="fill:#e61b64">
+            <animate id="a2" attributeName="r" attributeType="XML" from="0" to="30" begin="a1.end" dur=".2s" fill="freeze" />
+        </circle>
+        <circle cx="200" cy="100" r="0" style="fill:#d7006f">
+            <animate id="a3" attributeName="r" attributeType="XML" from="0" to="30" begin="a2.end" dur=".2s" fill="freeze" />
+        </circle>
+        <circle cx="250" cy="100" r="0" style="fill:#ee869a">
+            <animate id="a4" attributeName="r" attributeType="XML" from="0" to="30" begin="a3.end" dur=".2s" fill="freeze" />
+        </circle>
+        <circle cx="300" cy="100" r="0" style="fill:#e5004f">
+            <animate id="a5" attributeName="r" attributeType="XML" from="0" to="30" begin="a4.end" dur=".2s" fill="freeze" />
+        </circle>
+        <circle cx="350" cy="100" r="0" style="fill:#ea5520">
+            <animate id="a6" attributeName="r" attributeType="XML" from="0" to="30" begin="a5.end" dur=".2s" fill="freeze" />
+        </circle>
+        <circle cx="400" cy="100" r="0" style="fill:#e61b64">
+            <animate id="a7" attributeName="r" attributeType="XML" from="0" to="30" begin="a6.end" dur=".2s" fill="freeze" onend="a1.beginElement()"/>
+        </circle>
+    </svg>
+</body>
+
+</html>
