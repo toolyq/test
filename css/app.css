@@ -1,0 +1,62 @@
+body,
+div,
+span,
+p,
+li {
+  box-sizing: border-box;
+}
+body {
+  color: #666666;
+  background: #eeeeee;
+}
+h1 {
+  float: left;
+  margin: 18px 0 3px 38px;
+}
+h2 {
+  float: right;
+  color: #999999;
+}
+.product {
+  margin: auto;
+}
+.product li {
+  border: 1px solid #666666;
+  margin: 3px;
+  padding: 4px;
+}
+a {
+  color: #666666;
+  text-decoration: none;
+}
+.product li {
+  list-style-type: none;
+  float: left;
+  padding: 2px;
+  width: 234px;
+  height: 340px;
+}
+.product li:hover {
+  border: 3px solid red;
+}
+.product img {
+  width: 220px;
+  height: 220px;
+}
+.product .price {
+  color: red;
+  font-weight: bold;
+}
+.border {
+  border: 1px solid #666666;
+}
+.clear {
+  clear: both;
+}
+.automargin {
+  margin-left: auto;
+  margin-right: auto;
+}
+.center {
+  text-align: center;
+}
